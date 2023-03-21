@@ -38,7 +38,7 @@ app.use('/api/comments/', comments)
 import { Server } from 'socket.io'
 const io = new Server(3000, {
     cors: {
-        origin: 'http://localhost:5174',
+        origin: '*',
         methods: ['GET', 'POST'],
     }
 })
