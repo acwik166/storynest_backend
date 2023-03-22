@@ -30,8 +30,6 @@ app.use(cookieParser())
 // }))
 app.use(cors())
 
-app.use('/', async (req, res) => res.json({ message: 'Please visit /api' }))
-
 app.use('/api/auth', auth)
 app.use('/api/articles', articles)
 app.use('/api/comments/', comments)
@@ -41,7 +39,7 @@ app.use('/api/comments/', comments)
 import { Server } from 'socket.io'
 const io = new Server(process.env.PORT_SOCKET, {
     cors: {
-        origin: '*',
+        origin: '',
         methods: ['GET', 'POST'],
     }
 })
