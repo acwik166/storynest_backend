@@ -2,13 +2,13 @@
   "name": "rest_api",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.js",
-    "server": "nodemon app.js",
+    "dev": "nodemon src/index.js",
+    "server": "nodemon index.js",
     "client": "cd ../client && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js"
+    "start": "node src/index.js"
   },
   "type": "module",
   "author": "",
