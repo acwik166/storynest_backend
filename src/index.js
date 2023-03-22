@@ -30,7 +30,7 @@ app.use(cookieParser())
 // }))
 app.use(cors())
 
-app.use('/', res.json({ message: 'Please visit /api' }))
+app.use('/', async (req, res) => res.json({ message: 'Please visit /api' }))
 
 app.use('/api/auth', auth)
 app.use('/api/articles', articles)
