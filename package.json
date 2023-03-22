@@ -1,13 +1,10 @@
 {
-  "name": "rest_api",
+  "name": "storynest_backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "server": "nodemon index.js",
-    "client": "cd ../client && npm run dev",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js"
   },
   "type": "module",
