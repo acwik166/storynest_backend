@@ -8,16 +8,17 @@ import passport from 'passport'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 
-import User from './models/User.js'
-import Article from './models/Article.js'
+import User from './src/models/User.js'
+import Article from './src/models/Article.js'
 
-import auth from './routes/auth.js'
-import articles from './routes/articles.js'
-import comments from './routes/comments.js'
+import auth from './src/routes/auth.js'
+import articles from './src/routes/articles.js'
+import comments from './src/routes/comments.js'
 
 passport.use(User.createStrategy())
 
 mongoose.connect(process.env.MONGO_URI)
+mongoose.set('strictQuery', true)
 
 const app = express()
 
