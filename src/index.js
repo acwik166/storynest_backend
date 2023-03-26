@@ -29,7 +29,7 @@ app.use(cookieParser())
 app.use(cors())
 
 app.use(cors({
-    origin: 'https://storynest-frontend-production.up.railway.app',
+    origin: 'https://storynest-frontend-production.up.railway.app/',
     credentials: true,
 }))
 
@@ -45,7 +45,7 @@ import { createServer } from 'http'
 const server = createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: 'https://storynest-frontend-production.up.railway.app',
+        origin: 'https://storynest-frontend-production.up.railway.app/',
         methods: ['GET', 'POST'],
     }
 })
