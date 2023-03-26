@@ -25,11 +25,10 @@ const port = process.env.PORT || 3333;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser())
-// app.use(cors({
-//     origin: '*',
-//     credentials: true,
-// }))
-app.use(cors())
+app.use(cors({
+    origin: 'https://storynest-frontend-production.up.railway.app/',
+    credentials: true,
+}))
 
 app.use('/api/articles', articles)
 app.use('/api/auth', auth)
@@ -40,7 +39,7 @@ app.use('/api/comments/', comments)
 import { Server } from 'socket.io'
 const io = new Server(process.env.PORT_SOCKET, {
     cors: {
-        origin: '',
+        origin: 'https://storynest-frontend-production.up.railway.app/',
         methods: ['GET', 'POST'],
     }
 })
