@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js",
-    "build": "npm run build src/inedx.js"
+    "start": "node src/index.js"
   },
   "engines": {
     "node": ">=v19.0.0"
