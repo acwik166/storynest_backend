@@ -47,6 +47,7 @@ const io = new Server(server, {
     }
 })
 
+
 io.on('connection', socket => {
     socket.on('get-document', async ({ documentId, userId }) => {
         const document = await findOrCreateArticle(documentId, userId)
@@ -71,6 +72,7 @@ io.on('connection', socket => {
     })
 })
 
+server.listen(portSocket)
 
 async function findOrCreateArticle(docId, userId) {
     if (docId == null && userId == null) return
