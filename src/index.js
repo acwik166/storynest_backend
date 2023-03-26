@@ -15,7 +15,7 @@ import auth from './routes/auth.js'
 import articles from './routes/articles.js'
 import comments from './routes/comments.js'
 
-// passport.use(User.createStrategy())
+passport.use(User.createStrategy())
 
 mongoose.connect(process.env.MONGO_URI)
 
