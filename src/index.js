@@ -26,10 +26,9 @@ const portSocket = process.env.PORT_SOCKET || 3334
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser())
-app.use(cors())
 
 app.use(cors({
-    origin: '',
+    origin: 'https://storynest-frontend-production.up.railway.app',
     credentials: true,
 }))
 
