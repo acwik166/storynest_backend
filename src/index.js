@@ -28,12 +28,11 @@ app.use(bodyParser.json());
 app.use(cookieParser())
 app.use(cors())
 
-// app.use(cors({
-//     origin: 'https://storynest-frontend-production.up.railway.app',
-//     credentials: true,
-// }))
+app.use(cors({
+    origin: 'https://storynest-frontend-production.up.railway.app',
+    credentials: true,
+}))
 
-// https://storynest-frontend-production.up.railway.app
 
 app.use('/api/articles', articles)
 app.use('/api/auth', auth)
