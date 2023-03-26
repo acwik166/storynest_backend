@@ -21,6 +21,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 const app = express()
 const port = process.env.PORT || 3333;
+const portSocket = process.env.PORT_SOCKET || 3334
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -37,7 +38,7 @@ app.use('/api/comments/', comments)
 
 // Socket
 import { Server } from 'socket.io'
-const io = new Server(process.env.PORT_SOCKET, {
+const io = new Server(portSocket, {
     cors: {
         origin: 'https://storynest-frontend-production.up.railway.app',
         methods: ['GET', 'POST'],
