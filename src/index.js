@@ -33,7 +33,7 @@ app.use(cors())
 
 app.use('/api/articles', articles)
 // app.use('/api/auth', auth)
-// app.use('/api/comments/', comments)
+app.use('/api/comments/', comments)
 
 
 // Socket
