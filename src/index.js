@@ -4,21 +4,21 @@ dotenv.config()
 import express from 'express'
 import mongoose from 'mongoose'
 
-const app = express();
-const port = process.env.PORT || 3333;
+// const app = express();
+// const port = process.env.PORT || 3333;
 
-app.use(express.json());
-app.use(express.raw({ type: "application/vnd.custom-type" }));
-app.use(express.text({ type: "text/html" }));
+// app.use(express.json());
+// app.use(express.raw({ type: "application/vnd.custom-type" }));
+// app.use(express.text({ type: "text/html" }));
 
-app.get("/", async (req, res) => {
-    res.json({ message: "Please visit /countries to view all the countries" });
-});
+// app.get("/", async (req, res) => {
+//     res.json({ message: "Please visit /countries to view all the countries" });
+// });
 
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//     console.log(`Example app listening at http://localhost:${port}`);
+// });
 
 import bodyParser from 'body-parser'
 import passport from 'passport'
@@ -34,18 +34,19 @@ import comments from './routes/comments.js'
 
 // passport.use(User.createStrategy())
 
-// mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI)
 
-// const app = express()
+const app = express()
+const port = process.env.PORT || 3333;
 
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
-// app.use(cookieParser())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cookieParser())
 // app.use(cors({
 //     origin: '*',
 //     credentials: true,
 // }))
-// app.use(cors())
+app.use(cors())
 
 // app.use('/api/articles', articles)
 // app.use('/api/auth', auth)
@@ -98,6 +99,6 @@ import comments from './routes/comments.js'
 //     return await Article.create({ _id: docId, author: userId, data: '', title: '' })
 // }
 
-// app.listen(process.env.PORT_API, () => {
-//     console.log('server running..')
-// })
+app.listen(port, () => {
+    console.log('server running..')
+})
