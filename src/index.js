@@ -20,17 +20,17 @@ app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
 
-// import bodyParser from 'body-parser'
-// import passport from 'passport'
-// import cookieParser from 'cookie-parser'
-// import cors from 'cors'
+import bodyParser from 'body-parser'
+import passport from 'passport'
+import cookieParser from 'cookie-parser'
+import cors from 'cors'
 
-// import User from './models/User.js'
-// import Article from './models/Article.js'
+import User from './models/User.js'
+import Article from './models/Article.js'
 
-// import auth from './routes/auth.js'
-// import articles from './routes/articles.js'
-// import comments from './routes/comments.js'
+import auth from './routes/auth.js'
+import articles from './routes/articles.js'
+import comments from './routes/comments.js'
 
 // passport.use(User.createStrategy())
 
