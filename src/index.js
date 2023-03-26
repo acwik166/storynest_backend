@@ -29,10 +29,9 @@ app.use(cookieParser())
 app.use(cors())
 
 app.use(cors({
-    origin: 'https://storynest-frontend-production.up.railway.app',
+    origin: '',
     credentials: true,
 }))
-
 
 app.use('/api/articles', articles)
 app.use('/api/auth', auth)
