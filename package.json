@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "build": "npm build src/inedx.js"
+  },
+  "engines": {
+    "node": ">=v19.0.0"
   },
   "type": "module",
   "author": "",
