@@ -7,9 +7,6 @@
     "dev": "nodemon src/index.js",
     "start": "node src/index.js"
   },
-  "engines": {
-    "node": ">=v16.18.1"
-  },
   "type": "module",
   "author": "",
   "license": "ISC",
