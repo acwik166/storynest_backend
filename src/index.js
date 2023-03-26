@@ -69,6 +69,8 @@ io.on('connection', socket => {
     })
 })
 
+io.listen(portSocket)
+
 
 async function findOrCreateArticle(docId, userId) {
     if (docId == null && userId == null) return
