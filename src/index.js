@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser())
 app.use(cors({
-    origin: 'https://storynest-frontend-production.up.railway.app/',
+    origin: 'https://storynest-frontend-production.up.railway.app',
     credentials: true,
 }))
 
@@ -39,7 +39,7 @@ app.use('/api/comments/', comments)
 import { Server } from 'socket.io'
 const io = new Server(process.env.PORT_SOCKET, {
     cors: {
-        origin: 'https://storynest-frontend-production.up.railway.app/',
+        origin: 'https://storynest-frontend-production.up.railway.app',
         methods: ['GET', 'POST'],
     }
 })
