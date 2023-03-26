@@ -30,8 +30,8 @@ app.use(cookieParser())
 // }))
 app.use(cors())
 
-app.use('/api/auth', auth)
 app.use('/api/articles', articles)
+app.use('/api/auth', auth)
 app.use('/api/comments/', comments)
 
 
