@@ -38,7 +38,9 @@ app.use('/api/comments/', comments)
 
 // Socket
 import { Server } from 'socket.io'
-const io = new Server(portSocket, {
+import http from 'http'
+const server = http.createServer(app);
+const io = new Server(server, {
     cors: {
         origin: 'https://storynest-frontend-production.up.railway.app',
         methods: ['GET', 'POST'],
