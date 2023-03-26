@@ -54,50 +54,50 @@ app.use(cors())
 
 
 // Socket
-// import { Server } from 'socket.io'
-// const io = new Server(process.env.PORT_SOCKET, {
-//     cors: {
-//         origin: '',
-//         methods: ['GET', 'POST'],
-//     }
-// })
+import { Server } from 'socket.io'
+const io = new Server(process.env.PORT_SOCKET, {
+    cors: {
+        origin: '',
+        methods: ['GET', 'POST'],
+    }
+})
 
-// io.on('connection', socket => {
-//     socket.on('get-document', async ({ documentId, userId }) => {
-//         const document = await findOrCreateArticle(documentId, userId)
-//         socket.join(documentId)
-//         socket.emit('load-document', document)
+io.on('connection', socket => {
+    socket.on('get-document', async ({ documentId, userId }) => {
+        const document = await findOrCreateArticle(documentId, userId)
+        socket.join(documentId)
+        socket.emit('load-document', document)
 
-//         socket.on('send-changes', (delta) => {
-//             socket.broadcast.to(documentId).emit('receive-changes', delta)
-//         })
+        socket.on('send-changes', (delta) => {
+            socket.broadcast.to(documentId).emit('receive-changes', delta)
+        })
 
-//         socket.on('send-title', (title) => {
-//             socket.broadcast.to(documentId).emit('receive-title', title)
-//         })
+        socket.on('send-title', (title) => {
+            socket.broadcast.to(documentId).emit('receive-title', title)
+        })
 
-//         socket.on('save-document', async (data) => {
-//             await Article.findByIdAndUpdate(documentId, { data: data })
-//         })
+        socket.on('save-document', async (data) => {
+            await Article.findByIdAndUpdate(documentId, { data: data })
+        })
 
-//         socket.on('save-title', async (title) => {
-//             await Article.findByIdAndUpdate(documentId, { title: title })
-//         })
-//     })
-// })
+        socket.on('save-title', async (title) => {
+            await Article.findByIdAndUpdate(documentId, { title: title })
+        })
+    })
+})
 
 
-// async function findOrCreateArticle(docId, userId) {
-//     if (docId == null && userId == null) return
+async function findOrCreateArticle(docId, userId) {
+    if (docId == null && userId == null) return
 
-//     const document = await Article.findById(docId)
+    const document = await Article.findById(docId)
 
-//     if (document) return document
+    if (document) return document
 
-//     console.log(userId)
+    console.log(userId)
 
-//     return await Article.create({ _id: docId, author: userId, data: '', title: '' })
-// }
+    return await Article.create({ _id: docId, author: userId, data: '', title: '' })
+}
 
 app.listen(port, () => {
     console.log('server running..')
