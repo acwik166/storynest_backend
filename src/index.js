@@ -84,6 +84,6 @@ async function findOrCreateArticle(docId, userId) {
     return await Article.create({ _id: docId, author: userId, data: '', title: '' })
 }
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log('server running..')
 })
