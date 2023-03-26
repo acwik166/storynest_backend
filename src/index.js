@@ -27,9 +27,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser())
 app.use(cors({
-    origin: 'https://storynest-frontend-production.up.railway.app',
+    origin: '',
     credentials: true,
 }))
+
+// https://storynest-frontend-production.up.railway.app
 
 app.use('/api/articles', articles)
 app.use('/api/auth', auth)
