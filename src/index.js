@@ -28,7 +28,7 @@ app.use(cookieParser())
 //     origin: '*',
 //     credentials: true,
 // }))
-app.use(cors())
+// app.use(cors())
 
 app.use('/api/articles', articles)
 app.use('/api/auth', auth)
@@ -37,12 +37,14 @@ app.use('/api/comments/', comments)
 
 // Socket
 import { Server } from 'socket.io'
-const io = new Server(process.env.PORT_SOCKET, {
-    cors: {
-        origin: '',
-        methods: ['GET', 'POST'],
-    }
-})
+const io = new Server(process.env.PORT_SOCKET)
+
+// , {
+//     cors: {
+//         origin: '',
+//         methods: ['GET', 'POST'],
+//     }
+// }
 
 io.on('connection', socket => {
     socket.on('get-document', async ({ documentId, userId }) => {
