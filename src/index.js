@@ -48,6 +48,7 @@ const io = new Server(server, {
 })
 
 io.on('connection', socket => {
+    console.log(socket.id)
     socket.on('get-document', async ({ documentId, userId }) => {
         const document = await findOrCreateArticle(documentId, userId)
         socket.join(documentId)
