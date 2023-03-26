@@ -45,7 +45,7 @@ import { createServer } from 'http'
 const server = createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: '*',
+        origin: 'https://storynest-frontend-production.up.railway.app',
         methods: ['GET', 'POST'],
     }
 })
