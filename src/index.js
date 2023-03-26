@@ -38,15 +38,14 @@ app.use('/api/comments/', comments)
 
 // Socket
 import { Server } from 'socket.io'
-import http from 'http'
-const server = http.createServer(app);
+import { createServer } from 'http'
+const server = createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: 'https://storynest-frontend-production.up.railway.app',
+        origin: '*',
         methods: ['GET', 'POST'],
     }
 })
-
 
 io.on('connection', socket => {
     socket.on('get-document', async ({ documentId, userId }) => {
@@ -71,8 +70,6 @@ io.on('connection', socket => {
         })
     })
 })
-
-server.listen(portSocket)
 
 async function findOrCreateArticle(docId, userId) {
     if (docId == null && userId == null) return
