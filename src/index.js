@@ -28,9 +28,11 @@ app.use(bodyParser.json());
 app.use(cookieParser())
 
 app.use(cors({
-    origin: 'https://storynest-frontend-production.up.railway.app',
+    origin: 'http://localhost:5173',
     credentials: true,
 }))
+
+// https://storynest-frontend-production.up.railway.app
 
 app.use('/api/articles', articles)
 app.use('/api/auth', auth)
@@ -43,7 +45,7 @@ import { createServer } from 'http'
 const server = createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: 'https://storynest-frontend-production.up.railway.app',
+        origin: 'http://localhost:5173',
         methods: ['GET', 'POST'],
     }
 })
@@ -80,11 +82,9 @@ async function findOrCreateArticle(docId, userId) {
 
     if (document) return document
 
-    console.log(userId)
-
     return await Article.create({ _id: docId, author: userId, data: '', title: '' })
 }
 
 server.listen(port, () => {
-    console.log('server running..')
+    console.log('server running')
 })
