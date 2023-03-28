@@ -28,11 +28,9 @@ app.use(bodyParser.json());
 app.use(cookieParser())
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://storynest-frontend-production.up.railway.app',
     credentials: true,
 }))
-
-// https://storynest-frontend-production.up.railway.app
 
 app.use('/api/articles', articles)
 app.use('/api/auth', auth)
@@ -45,7 +43,7 @@ import { createServer } from 'http'
 const server = createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: 'http://localhost:5173',
+        origin: 'https://storynest-frontend-production.up.railway.app',
         methods: ['GET', 'POST'],
     }
 })
